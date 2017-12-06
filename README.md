@@ -36,35 +36,55 @@ blackpaper has been modified by some attacker it is not safe to use. It doesn’
 the real one. Before you go ahead and download something, there are a few extra steps you should take to make sure you have
 downloaded an authentic version. Below is an example of how to verify whether the blackpaper.pdf is the one that we produce:
 1. Import the public key of trust-tech.org(trust-tech@protonmail.com):
+```
     gpg --keyserver keys.gnupg.net --recv-keys 04BDC75EA19166D13F3F151448826F5500731B61
+```
 2. After importing the key, you can verify that the fingerprint is correct:
+```
     gpg --fingerprint 04BDC75EA19166D13F3F151448826F5500731B61
+```
 3. You Should See:
+```
     pub   rsa4096 2017-11-30 [SC] [expires: 2018-11-30]
           04BD C75E A191 66D1 3F3F  1514 4882 6F55 0073 1B61
     uid           [ultimate] Trust-Tech (Trust-Tech.org Official) <Trust-Tech@protonmail.com>
     sub   rsa4096 2017-11-30 [E] [expires: 2018-11-30]
+```
 4. To verify the signature of the file you downloaded, you will need to download the ”.asc” file as well. Assuming the file is at the current directory, run:
+```
     gpg --verify blackpaper.pdf.asc blackpaper.pdf
+```
 5. The output should say ”Good signature”:
+```
     gpg: Signature made Wed 06 Dec 2017 02:39:33 AM EST
     gpg:                using RSA key 48826F5500731B61
     gpg: Good signature from "Trust-Tech (Trust-Tech.org Official) <Trust-Tech@protonmail.com>" [ultimate]
+```
 ### How To Use GPG to Encrypt and Sign Messages?
 It is recommended that all the important messages sent between you and us are encrypted with gpg and assuming you have properly generated gpg key pairs and well configured and secured.
 1. Import
 the public key of trust-tech.org(trust-tech@protonmail.com):
+```
     gpg --keyserver keys.gnupg.net --recv-keys 04BDC75EA19166D13F3F151448826F5500731B61
+```
 2. After importing the key, you can verify that the fingerprint is correct:
-gpg --fingerprint 4AAB89C770CF38E68C9D41BE6AEBE3BCE00AA58D
-3. You Should See:
+```
+    gpg --fingerprint 4AAB89C770CF38E68C9D41BE6AEBE3BCE00AA58D
+```
+3. You Should See:```
+```
     pub   rsa4096 2017-11-30 [SC] [expires: 2018-11-30]
           04BD C75E A191 66D1 3F3F  1514 4882 6F55 0073 1B61
     uid           [ultimate] Trust-Tech (Trust-Tech.org Official) <Trust-Tech@protonmail.com>
     sub   rsa4096 2017-11-30 [E] [expires: 2018-11-30]
+```
 4. To encrypt the messages that you wish to send to us:
+```
     gpg --output document_file.gpg --encrypt --recipient trust-tech@protonmail.com document_file
+```
 5. To decrypt the messages that we sent to you:
+```
     gpg --output document_file --decrypt document_file.gpg
+```
 For More detail, please refer to the guidelines described in the The GNU Privacy Handbook:
 https://www.gnupg.org/gph/en/manual/book1.html
